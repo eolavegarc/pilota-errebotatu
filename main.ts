@@ -1,14 +1,20 @@
+input.onLogoEvent(TouchButtonEvent.Pressed, function () {
+    game.resume()
+})
 input.onButtonPressed(Button.A, function () {
-    pausa = 500
+    pausa = 200
+})
+input.onButtonPressed(Button.AB, function () {
+    game.pause()
 })
 input.onButtonPressed(Button.B, function () {
-    pausa = 1000
+    pausa = 60
 })
 let pausa = 0
 let pilota = game.createSprite(4, 2)
 pausa = 50
 basic.forever(function () {
-    basic.pause(100)
     pilota.move(1)
     pilota.ifOnEdgeBounce()
+    basic.pause(pausa)
 })
